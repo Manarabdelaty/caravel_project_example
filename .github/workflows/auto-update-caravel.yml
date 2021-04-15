@@ -25,7 +25,10 @@ jobs:
       run: |
         git pull --recurse-submodules
         git submodule update --remote --recursive
-      
+        cd caravel
+        git checkout develop
+        git pull origin develop
+        
     - name: Commit update
       run: |
         git config --global user.name 'Git bot'
