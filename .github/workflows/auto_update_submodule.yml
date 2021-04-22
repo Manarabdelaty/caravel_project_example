@@ -24,7 +24,7 @@ jobs:
 
     # Update references
     - name: Git Sumbodule Update
-      run: git submodule foreach --recursive git pull origin
+      run: git submodule update --init caravel
         
     - name: Commit update
       run: |
