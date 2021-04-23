@@ -24,7 +24,7 @@ jobs:
 
     # Update references
     - name: Git Sumbodule Update
-      run: git submodule update --init caravel
+      run: make update_caravel
         
     - name: Commit update
       run: |
