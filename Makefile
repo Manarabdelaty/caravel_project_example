@@ -99,6 +99,7 @@ simlink: check-caravel
 update_caravel: check-caravel
 ifeq ($(SUBMODULE),1)
 	@git submodule update --init
+	@git submodule foreach git pull origin $(CARAVEL_COMMIT)
 else
 	cd $(CARAVEL_ROOT)/ && \
 		git checkout $(CARAVEL_COMMIT) && \
