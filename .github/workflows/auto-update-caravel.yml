@@ -2,7 +2,9 @@ name: 'Auto-update Caravel'
 
 on:
   workflow_dispatch:
-
+  push:
+    branches:
+      - latest-submodule
 jobs:
   sync:
     name: 'Auto-update Caravel'
