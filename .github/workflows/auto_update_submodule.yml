@@ -1,3 +1,4 @@
+    
 name: 'Auto-update Caravel Submodule'
 
 on:
@@ -7,9 +8,10 @@ on:
   push:
     branches:
       - auto_update_submodule
+
 jobs:
   sync:
-    name: 'Auto-update Caravel'
+    name: 'Submodules Sync'
     runs-on: ubuntu-latest
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -22,12 +24,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
+        token: ${{ secrets.CI_TOKEN }}
         submodules: true
 
     # Update references
     - name: Git Sumbodule Update
-      run: make update_caravel
-        
+      run: |
+        git pull --recurse-submodules
+        git submodule update --remote --recursive
+
     - name: Commit update
       run: |
         git config --global user.name 'Git bot'
