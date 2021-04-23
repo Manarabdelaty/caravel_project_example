@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
-    
+  push:
+    branches:
+      - auto_update_submodule
 jobs:
   sync:
     name: 'Auto-update Caravel'
